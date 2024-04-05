@@ -1,0 +1,7 @@
+.label_input {
+    font-weight: 500;
+    margin-bottom: -5px;
+}
+.img_principal {
+    filter: contrast(50%)
+}

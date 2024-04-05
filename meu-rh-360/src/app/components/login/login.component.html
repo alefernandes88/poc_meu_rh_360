@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-9">
+            <img class="img-fluid img_principal" src="assets/img/ft1.jpeg">
+        </div>
+        <div class="col-3 align-self-center">
+            <img class="img-responsive" src="assets/img/logo.png" alt="logo">
+            <div class="mt-5"> 
+                <p><b>Crie uma conta profissional</b></p>
+                <p style="margin-top: -15px"><small>Preencha seus dados para ter acesso</small></p>
+            </div>
+            <div>
+                <form [formGroup]="form" (ngSubmit)="cadastrar()">
+                    <div class="mb-3">
+                        <label for="" class="form-label label_input">Nome Completo</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            formControlName="nome_completo" 
+                            placeholder="Digite seu nome completo" 
+                            [ngClass]="{ 'is-invalid': submitted && f['nome_completo'].errors }"
+                        />
+                        @if (submitted && f['nome_completo'].errors) {
+                            <div class="invalid-feedback">
+                              @if (f['nome_completo'].errors['required']) {
+                                <div>Nome completo é obrigatório</div>
+                              }
+                            </div>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label label_input">E-mail</label>
+                        <input 
+                            type="email" 
+                            class="form-control"
+                            formControlName="email"
+                            placeholder="Digite seu e-mail cadastrado / ex: email@gmail.com"
+                            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                        />
+                        @if (submitted && f['email'].errors) {
+                            <div class="invalid-feedback">
+                              @if (f['email'].errors['required']) {
+                                <div>E-mail é obrigatório</div>
+                              }
+                            </div>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label label_input">Senha</label>
+                        <input 
+                            type="password" 
+                            class="form-control" 
+                            formControlName="senha"
+                            placeholder="Digite uam senha forte"
+                            [ngClass]="{ 'is-invalid': submitted && f['senha'].errors }"
+                        />
+                        @if (submitted && f['senha'].errors) {
+                            <div class="invalid-feedback">
+                              @if (f['senha'].errors['required']) {
+                                <div>E-mail é obrigatório</div>
+                              }
+                            </div>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label label_input">Confirmação da senha</label>
+                        <input 
+                            type="password" 
+                            class="form-control"
+                            formControlName="confirmacao_senha"
+                            placeholder="Repita a senha"
+                            [ngClass]="{ 'is-invalid': submitted && f['confirmacao_senha'].errors }"
+                        />
+                        @if (submitted && f['confirmacao_senha'].errors) {
+                            <div class="invalid-feedback">
+                              @if (f['confirmacao_senha'].errors['required']) {
+                                <div>Confirmação da senha é obrigatório</div>
+                              }
+                            </div>
+                        }
+                    </div>
+                    <div class="form-check mb-3">
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            formControlName="aceite_termo"
+                            [ngClass]="{ 'is-invalid': submitted && f['aceite_termo'].errors }"
+                        />
+                        <label class="form-check-label">
+                            <small style="font-size: 11px">Eu aceito os <a href="">Termos de Uso de Privacidade</a> e o <a href="">Contrato de serviço</a></small>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary">Criar conta</button>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

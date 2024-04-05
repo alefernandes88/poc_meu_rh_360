@@ -1,0 +1,10 @@
+.layout {
+    /* display: flex;
+    align-items: center;
+    justify-content:center; */
+    width: 98%;
+    height: 98%;
+    margin: auto;
+    margin-top:1%;
+    margin-bottom:1%;
+}

@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2" style="background-color: #0c0d52; height: 700px">
+
+        </div>
+        <div class="col-10" style="background-color: #e6e6ed">
+
+            <nav style="margin-left: -10px; margin-right: -13px; height: 30px; background-color: white;">
+                <div class="text-end">
+                  <span class="navbar-brand mb-0 h1 text-end ">{{usuario}}</span>
+                </div>
+            </nav>
+
+            <div class="d-flex flex-row-reverse mt-3">
+                <nav aria-label="breadcrumb ">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Configuração</li>
+                    <li class="breadcrumb-item active" aria-current="page">Empresa</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
