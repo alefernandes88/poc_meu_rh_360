@@ -72,6 +72,24 @@ export class EditComponent implements OnInit {
         if (this.form.invalid) {
             return;
         }
-        this.router.navigate(['/initial/started'], { state: this.form.value});
+        //this.router.navigate(['/initial/started'], { state: this.form.value});
+        console.log(this.form.value);
     }
+
+    cancelar(): void {
+        this.router.navigate(['/initial/started']);
+    }
+
+    mask:string = "";
+
+    cpfcnpjmask() {
+        const value = this.form.get('cpf')?.value;
+        console.log(value, value.length, this.form)
+        if(value.length <= 14) {
+          this.mask = '00.000.000/0000-00'
+        }
+        else {
+          this.mask = '00.000.0000-00'
+        }
+      }
 }
