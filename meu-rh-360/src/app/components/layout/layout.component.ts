@@ -12,11 +12,13 @@ import { Usuario } from "../../models/modelos";
 })
 export class LayoutComponent{
 
-    usuario = "";
+    usuario = "carregando";
 
     constructor(private location: Location){
         const usu: Usuario = this.location.getState() as Usuario;
-        this.usuario = this.buscarNome(usu.nome_completo);
+        if(usu.nome_completo != null) {
+            this.usuario = this.buscarNome(usu.nome_completo);
+       }
     }
 
     buscarNome(nomeCompleto: string): string {

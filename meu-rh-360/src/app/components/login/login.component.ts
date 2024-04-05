@@ -19,12 +19,12 @@ const modules = [
 })
 export class LoginComponent implements OnInit {
 
-    form: FormGroup = new FormGroup({
-        nome_completo: new FormControl(''),
-        email: new FormControl(''),
-        senha: new FormControl(''),
+    form: FormGroup =   new FormGroup({
+        nome_completo:  new FormControl(''),
+        email:          new FormControl(''),
+        senha:          new FormControl(''),
         confirmacao_senha: new FormControl(''),
-        aceite_termo: new FormControl(false),
+        aceite_termo:   new FormControl(false),
     });
 
     submitted = false;

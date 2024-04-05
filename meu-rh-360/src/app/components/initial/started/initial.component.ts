@@ -18,7 +18,9 @@ export class InitialComponent{
 
     constructor(private location: Location, private router: Router){
         const usu: Usuario = this.location.getState() as Usuario;
-        this.titular = this.buscarNome(usu.nome_completo);
+        if(usu.nome_completo != null) {
+            this.titular = this.buscarNome(usu.nome_completo);
+       }
     }
 
     buscarNome(nomeCompleto: string): string {

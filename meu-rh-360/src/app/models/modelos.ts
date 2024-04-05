@@ -5,3 +5,4 @@ export type Usuario = {
     confirmacao_senha: string;
     aceite_termo: boolean;
 }
+

@@ -1,0 +1,12 @@
+label {
+    font-weight: 600;
+    color: #0c0d52;
+}
+h4 { 
+    color: #0c0d52;
+    font-weight: 700;
+}
+hr {
+    margin-top: 1.2rem;
+    margin-bottom: 3rem;
+}

@@ -1,61 +1,132 @@
 <div class="container">
     <div class="row">
-        <h1>{{title}}</h1>
+        <h4>{{title}}</h4>
         <hr>
-        <div class="mb-3">
-            <label for="" class="form-label">Tipo de empresa</label>
-            <input type="tipo_empresa" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Nome da empresa*</label>
-            <input type="nome_empresa" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">CNPJ da empresa*</label>
-            <input type="cnpj" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">CEP</label>
-            <input type="cep" class="form-control" id="" placeholder="31365-440">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Endereço</label>
-            <input type="endereco" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Bairro</label>
-            <input type="bairro" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Estado</label>
-            <input type="estado" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Cidade</label>
-            <input type="cidade" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Complemento</label>
-            <input type="complemento" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Celular*</label>
-            <input type="celular" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Nome do administrador*</label>
-            <input type="nome_administrador" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">CPF</label>
-            <input type="cpf" class="form-control" id="">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">E-mail*</label>
-            <input type="email" class="form-control" id="">
-        </div>
-        <button type="button" class="btn btn-secondary">Cancelar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>	
+        <form [formGroup]="form" (ngSubmit)="cadastrar()">
+            <div class="row">
+                <div class="mb-3 col-3">
+                    <label for="" class="form-label">Tipo de empresa</label>
+                    <input 
+                        type="text" 
+                        class="form-control col-3" 
+                        formControlName="tipo_empresa" 
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-7" >
+                    <label for="" class="form-label">Nome da empresa*</label>
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        formControlName="nome_empresa" 
+                        [ngClass]="{ 'is-invalid': submitted && f['nome_empresa'].errors }"
+                    />
+                </div>
+                <div class="mb-3 col-5">
+                    <label for="" class="form-label">CNPJ da empresa*</label>
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        formControlName="cnpj" 
+                        [ngClass]="{ 'is-invalid': submitted && f['cnpj'].errors }"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-2">
+                    <label for="" class="form-label">CEP</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        formControlName="cep" 
+                        placeholder="31365-440"
+                    />
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="" class="form-label">Endereço</label>
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        formControlName="endereco" 
+                    />
+                </div>
+                <div class="mb-3 col-2">
+                    <label for="" class="form-label">Bairro</label>
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        formControlName="bairro" 
+                    />
+                </div>
+                <div class="mb-3 col-1">
+                    <label for="" class="form-label">Estado</label>
+                    <select class="form-select">
+                        <option *ngFor="let estado of estados" >
+                            {{estado}}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3 col-2">
+                    <label for="" class="form-label">Cidade</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        formControlName="cidade" 
+                    />
+                </div>
+                <div class="mb-3 col-1">
+                    <label for="" class="form-label">Complemento</label>
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        formControlName="complemento" 
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-3">
+                    <label for="" class="form-label">Celular*</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        formControlName="celular" 
+                        [ngClass]="{ 'is-invalid': submitted && f['celular'].errors }"
+                    />
+                </div>
+                <div class="mb-3 col-3">
+                    <label for="" class="form-label">Nome do administrador*</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        formControlName="nome_administrador" 
+                        [ngClass]="{ 'is-invalid': submitted && f['nome_administrador'].errors }"
+                    />    
+                </div>
+                <div class="mb-3 col-3">
+                    <label for="" class="form-label">CPF</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        formControlName="cpf" 
+                    />
+                </div>
+                <div class="mb-3 col-3">
+                    <label for="" class="form-label">E-mail*</label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        formControlName="email" 
+                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                    />
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row-reverse bd-highlight">
+                <button type="button" class="btn btn-primary col-2">Salvar</button>	
+                <button type="button" class="btn btn-secondary col-2 me-2">Cancelar</button>  
+            </div>
+        </form>
     </div>
 </div>
 
